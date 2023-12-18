@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: white;
+      }
+      html,
+      body {
+      
+        background-color: black;
+      }
+      .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        
+    
+      }
+      .ele {
+        width: 100%;
+        height: 20%;
+        border-bottom: 4px solid white;
+         display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .main h3{
+        font-size: 6vw;
+        z-index:9;
+         mix-blend-mode: difference;
+       
+      }
+      .main img{
+        width:10%;
+        height:10vw;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        position: relative;
+        top:5vw;
+        overflow:hidden;
+        /* transform: translate(-50%,-50%); */
+        transition: all linear 0.2s;
+        opacity:0;
+     
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div id="ele1"class="ele">
+        <h3>Amelia Margaret</h3>
+        <img src="https://images.unsplash.com/photo-1702700485044-652cbbd41fde?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+      <div class="ele">
+        <h3>Olivia Samantha</h3>
+        <img src="https://images.unsplash.com/photo-1702611120121-e03dafc14150?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+      <div class="ele">
+        <h3>Isla Bethany</h3>
+        <img src="https://images.unsplash.com/photo-1701797345356-19e7990ab43d?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+      <div class="ele">
+        <h3>Emilzabeth</h3>
+        <img src="https://images.unsplash.com/photo-1701718199716-c88688fd9a2a?q=80&w=752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+      <div class="ele">
+        <h3>Joanne Poppy</h3>
+        <img src="https://images.unsplash.com/photo-1702460804280-b11997b6896e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+    </div>
+    <script>
+        var ele1 = document.querySelectorAll(".ele");
+        ele1.forEach(function(val){
+            console.log(val)
+            val.addEventListener("mouseenter", function(){
+                console.log(val.childNodes[3])
+                val.childNodes[3].style.opacity =1;
+                // console.log("entered")
+            })
+            val.addEventListener("mouseleave", function(){
+                console.log("leved")
+                 val.childNodes[3].style.opacity =0;
+            })
+            val.addEventListener('mousemove',function(dets){
+            val.childNodes[3].style.left = dets.x+'px';
+            val.childNodes[3].style.top = dets.y+'px';
+            })
+        })
+//         var eleImage = document.querySelector("#ele1 img");
+//         ele1.addEventListener('mouseover', function(dets){
+//             console.log(dets)
+// eleImage.style.left = dets.x+"px"
+// eleImage.style.top = dets.y+"px"
+//         })
+//         ele1.addEventListener('mouseenter', function(dets){
+//             console.log(dets)
+// eleImage.style.opacity =1
+//         })
+//         ele1.addEventListener('mouseleave', function(dets){
+//             console.log(dets)
+// eleImage.style.opacity =0
+        // })
+
+
+    </script>
+  </body>
+</html>

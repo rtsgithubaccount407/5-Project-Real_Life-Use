@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width:100%;
+            height:100%;
+            background-color: rgb(26, 155, 155);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #main{
+            overflow: hidden;
+            width:310px;
+            height: 420px;
+            background-color: rgb(224, 217, 217);
+            border-radius: 15px;;
+            border: 3px solid black;
+            position: relative;
+        }
+        .instastory{
+            width:100%;
+            height:110px;
+            /* background-color: rgb(255, 174, 67); */
+            border-bottom: 1px solid rgb(168, 164, 164);
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding:10px;
+                 white-space:nowrap;
+                        overflow-x:auto;
+            overflow-y:hidden;
+        }
+        .instastory::-webkit-scrollbar{
+            display:none;
+        }
+        #story{
+        border:2px solid rgb(233, 51, 51);
+         overflow: hidden;
+         display: inline-block;
+       margin:2px;
+            width:90px;
+            height:90px;
+            border-radius:50%;
+            /* background-color: blue; */
+     
+        }
+        #story img{
+            width:100%;
+            height:100%;
+           object-position: center;
+            object-fit:center;
+           
+        }
+        #showstory{
+            height:100%;
+            width:100%;
+          position: absolute;
+          background-size: cover;
+          display: none;
+          object-fit: cover;
+          object-position: center;
+          /* visibility: hidden; */
+        transition: 0.54s ease; 
+      
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="showstory">
+
+        </div>
+        <div class="instastory">
+          
+            <!-- <div id="story">
+                <img src="https://images.unsplash.com/photo-1598137203988-80de6392fc1a?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+            <div id="story">
+                <img src="https://images.unsplash.com/photo-1598137203988-80de6392fc1a?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+            <div id="story">
+                <img src="https://images.unsplash.com/photo-1598137203988-80de6392fc1a?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+            <div id="story">
+                <img src="https://images.unsplash.com/photo-1598137203988-80de6392fc1a?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+            <div id="story">
+                <img src="https://images.unsplash.com/photo-1598137203988-80de6392fc1a?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+        </div> -->
+    </div>
+    <script>
+        let instastory =   document.querySelector('.instastory')
+        var arr = [
+            {
+                dp:"https://images.unsplash.com/photo-1682695795255-b236b1f1267d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",story:"https://images.unsplash.com/photo-1626818590138-c1e906bf29be?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                dp:"https://plus.unsplash.com/premium_photo-1681245769050-d7f7988c1e5f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8" ,story:"https://images.unsplash.com/photo-1702573849838-0f66f3731fdf?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                dp:"https://images.unsplash.com/photo-1702165641468-7e422af7fd6b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8" ,story :"https://images.unsplash.com/photo-1597719409028-b538eca4a71a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                dp:"https://images.unsplash.com/photo-1702012464618-3cee08e53644?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D",story:"https://images.unsplash.com/photo-1682687220336-bbd659a734e7?q=80&w=1375&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                dp:"https://media.istockphoto.com/id/1179820643/photo/happy-woman-wearing-warm-clothes-standing-on-city-street-during-winter.jpg?s=612x612&w=0&k=20&c=DrzoTkA-n66pyove-t5aYtBvp6JmReUOVufwJCcP_xk=", story:"https://images.unsplash.com/photo-1626818590138-c1e906bf29be?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            }
+        ]
+     var clutter = "";
+        arr.forEach(function(item, index) {
+            // console.log(item, index);
+            clutter += `<div id="story">
+                            <img id="${index}" src="${item.dp}" alt="img">
+                        </div>`;
+        });
+
+      instastory.innerHTML = clutter;
+      instastory.addEventListener('click', function(dets){
+        // console.log(arr[dets.target.id].story)
+        document.querySelector('#showstory').style.display='block'
+        document.querySelector('#showstory').style.backgroundImage=`url(${arr[dets.target.id].story})`
+        setTimeout(()=>{
+ document.querySelector('#showstory').style.display='none'
+        },2000)
+      })
+    </script>
+</body>
+</html>
